@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#070b12">
+<title>Halal Investing | Islamic Stock Market</title>
+<meta name="description" content="Learn Shariah-conscious stock-market investing with research, business quality and long-term thinking.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#070b12; --navy:#0b1220; --emerald:#06201c; --plum:#150f22; --char:#10131a;
+  --gold:#d9b86a; --gold2:#f3dca2; --text:#e9e6dc; --mute:#9aa3b2;
+  --tg:https://t.me/+hK79AGqhLCdlNjhl;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Manrope',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--text);font-family:var(--sans);line-height:1.7;overflow-x:hidden;
+  padding-top:env(safe-area-inset-top,0);padding-bottom:env(safe-area-inset-bottom,0)}
+canvas#fx{position:fixed;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+section{position:relative;padding:96px 22px;perspective:1100px;overflow:hidden}
+.wrap{max-width:1040px;margin:0 auto;position:relative;z-index:2}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:.01em}
+h1{font-size:clamp(2.2rem,10vw,6rem);text-transform:uppercase;letter-spacing:.06em;filter:drop-shadow(0 0 28px rgba(217,184,106,.45));background:linear-gradient(120deg,#fff 10%,var(--gold2) 45%,var(--gold) 70%,#fff 100%);
+  background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:sheen 7s linear infinite}
+h2{font-size:clamp(2rem,7.5vw,3.4rem);margin-bottom:18px;color:#fff}
+h3{font-size:1.55rem;color:var(--gold2);margin-bottom:8px}
+p{color:var(--mute);font-weight:300;font-size:1.04rem;max-width:62ch}
+.eyebrow{display:inline-block;font-size:.72rem;letter-spacing:.32em;color:var(--gold);margin-bottom:20px;
+  padding:7px 16px;border:1px solid rgba(217,184,106,.35);border-radius:99px;background:rgba(217,184,106,.06)}
+@keyframes sheen{to{background-position:200% center}}
+
+/* section moods: multiple premium dark themes */
+.s-hero{min-height:100svh;display:flex;align-items:center;text-align:center;
+  background:radial-gradient(120% 80% at 50% 0%,#12233f 0%,var(--ink) 62%)}
+.s-clarity{background:linear-gradient(180deg,var(--ink),var(--emerald))}
+.s-inside{background:linear-gradient(180deg,var(--emerald),var(--navy))}
+.s-process{background:linear-gradient(180deg,var(--navy),var(--plum))}
+.s-why{background:linear-gradient(180deg,var(--plum),var(--char))}
+.s-final{background:radial-gradient(100% 70% at 50% 100%,#0e2a25 0%,var(--char) 70%);text-align:center}
+.s-disc{background:#05070b;padding:64px 22px}
+
+/* hero */
+.hero-in{display:flex;flex-direction:column;align-items:center;gap:22px;width:100%}
+h1 span{display:block}
+.sub{font-size:clamp(1.6rem,6.5vw,2.6rem);font-weight:500;font-style:italic;color:var(--gold2);margin:0;letter-spacing:.14em;position:relative;padding-top:22px}
+.sub::before{content:"";position:absolute;top:0;left:50%;width:90px;height:2px;margin-left:-45px;background:linear-gradient(90deg,transparent,var(--gold),transparent);box-shadow:0 0 14px var(--gold)}
+.hero-in p{margin:0 auto;font-size:1.1rem}
+
+/* buttons */
+.btn{--mx:50%;--my:50%;position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  padding:17px 34px;border-radius:99px;font:600 .95rem var(--sans);letter-spacing:.14em;text-decoration:none;color:#1a1305;
+  background:linear-gradient(135deg,var(--gold2),var(--gold) 55%,#b8923f);overflow:hidden;isolation:isolate;
+  box-shadow:0 10px 30px rgba(217,184,106,.28),0 0 0 1px rgba(255,255,255,.2) inset;
+  transform:perspective(700px) rotateX(var(--brx,0deg)) rotateY(var(--bry,0deg)) translateY(var(--bty,0px)) scale(var(--bs,1));transition:transform .55s cubic-bezier(.16,.84,.3,1),box-shadow .55s,letter-spacing .55s;transform-style:preserve-3d;will-change:transform}
+.btn::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:radial-gradient(160px circle at var(--mx) var(--my),rgba(255,255,255,.65),transparent 60%);opacity:0;transition:opacity .3s}
+.btn::after{content:"";position:absolute;top:0;left:-80%;width:50%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-20deg);transition:left .7s}
+.btn:hover,.btn:focus-visible{--bty:-6px;--bs:1.06;letter-spacing:.2em;box-shadow:0 26px 55px rgba(217,184,106,.5),0 0 0 7px rgba(217,184,106,.14)}
+.btn:active{--bty:-1px;--bs:.96;transition-duration:.15s}.btn:hover::before,.btn:active::before{opacity:1}
+.btn:hover::after,.btn:active::after{left:140%}
+.btn svg{width:20px;height:20px;transition:transform .4s}
+.btn svg{transform:translateZ(28px)}
+.btn:hover svg{transform:translateZ(36px) translateX(6px) rotate(-14deg)}
+.pulse{animation:pulse 2.6s infinite}
+@keyframes pulse{0%{box-shadow:0 10px 30px rgba(217,184,106,.28),0 0 0 0 rgba(217,184,106,.5)}
+  70%{box-shadow:0 10px 30px rgba(217,184,106,.28),0 0 0 22px rgba(217,184,106,0)}100%{box-shadow:0 10px 30px rgba(217,184,106,.28),0 0 0 0 rgba(217,184,106,0)}}
+
+/* 3D reveal on scroll */
+.r3d{opacity:0;transform:perspective(900px) rotateX(28deg) translateY(70px) translateZ(-120px);
+  transform-origin:50% 100%;transition:opacity .9s ease,transform 1.1s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}
+.r3d.in{opacity:1;transform:none}
+.r3d.left{transform:perspective(900px) rotateY(-35deg) translateX(-60px) translateZ(-100px)}
+.r3d.right{transform:perspective(900px) rotateY(35deg) translateX(60px) translateZ(-100px)}
+.r3d.in.left,.r3d.in.right{transform:none}
+
+/* tilt cards */
+.grid{display:grid;gap:22px;margin-top:40px;grid-template-columns:1fr}
+.card{position:relative;padding:30px 26px;border-radius:22px;transform-style:preserve-3d;
+  background:linear-gradient(145deg,rgba(255,255,255,.07),rgba(255,255,255,.015));
+  border:1px solid rgba(217,184,106,.18);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  transition:border-color .4s,box-shadow .4s}
+.tilt{transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .2s ease-out,border-color .4s,box-shadow .4s;touch-action:pan-y}
+.card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(240px circle at var(--gx,50%) var(--gy,0%),rgba(217,184,106,.22),transparent 60%);opacity:0;transition:opacity .35s}
+.card:hover,.card.active{border-color:rgba(243,220,162,.6);box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 40px rgba(217,184,106,.12)}
+.card:hover::before,.card.active::before{opacity:1}
+.card .ic{font-size:2rem;display:block;margin-bottom:14px;transform:translateZ(40px);filter:drop-shadow(0 8px 12px rgba(0,0,0,.5))}
+.card h3,.card p{transform:translateZ(22px)}
+.card.sm{padding:24px 22px}
+.card.sm h3{font-size:1.35rem}
+
+/* process */
+.steps{display:grid;gap:18px;margin-top:40px;grid-template-columns:1fr}
+.step{text-align:center;padding:30px 20px;border-radius:20px;border:1px solid rgba(255,255,255,.1);
+  background:rgba(255,255,255,.035);position:relative;transform-style:preserve-3d}
+.step em{display:block;font:600 3.2rem var(--serif);font-style:normal;color:transparent;-webkit-text-stroke:1px var(--gold);margin-bottom:6px;transform:translateZ(36px)}
+.step h3{margin:0;transform:translateZ(20px)}
+.note{margin-top:34px;display:grid;gap:6px}
+.note span{color:var(--gold2);font:500 1.25rem var(--serif);letter-spacing:.04em}
+
+.final-in{display:flex;flex-direction:column;align-items:center;gap:26px}
+.final-in p{margin:0 auto}
+.tag{font:500 1.25rem var(--serif);color:var(--gold2);letter-spacing:.08em}
+.s-disc h3{font-size:1.2rem;color:var(--gold);margin-bottom:10px}
+.s-disc p{font-size:.86rem;max-width:80ch;color:#7d8696}
+footer{position:relative;z-index:2;text-align:center;padding:26px 22px 40px;font-size:.78rem;color:#566074;background:#05070b}
+
+@media(min-width:760px){
+  section{padding:130px 40px}
+  .grid.c2{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(4,1fr)}
+  .scene{width:300px;height:300px}
+}
+@media (hover:hover){.card:hover{z-index:2}}
+a:focus-visible{outline:2px solid var(--gold2);outline-offset:4px}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .r3d{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<section class="s-hero">
+  <div class="wrap hero-in">
+    <h1 class="r3d"><span>Islamic</span> <span>Stock Market</span></h1>
+    <h2 class="sub r3d" style="--d:.15s">Halal Investing</h2>
+    <p class="r3d" style="--d:.2s">Invest in the stock market with a Shariah-conscious approach. Learn how to explore opportunities with a focus on research, business quality, and long-term thinking.</p>
+    <a class="btn pulse r3d" style="--d:.3s" href="https://t.me/+hK79AGqhLCdlNjhl" target="_blank" rel="noopener">JOIN TELEGRAM CHANNEL <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.4 18.7 19.6c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.3l-4.7-1.5c-1-.3-1-1 .2-1.5L20.400 3.200c.9-.3 1.600.2 1.500 1.200z"/></svg></a>
+  </div>
+</section>
+
+<section class="s-clarity">
+  <div class="wrap">
+    <h2 class="r3d left">Investing with clarity, not confusion</h2>
+    <p class="r3d right" style="--d:.1s">The stock market can feel overwhelming when you don't know where to begin. Too much information. Too many opinions. Too many stocks to choose from.</p>
+    <div class="card tilt r3d" style="margin-top:34px;--d:.15s">
+      <h3>Our goal is simple</h3>
+      <p>Make Halal investing easier to understand. Get access to educational insights, market discussions and research-focused content for people who want to learn more about Shariah-conscious stock-market investing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s-inside">
+  <div class="wrap">
+    <h2 class="r3d">What you'll find inside</h2>
+    <div class="grid c2">
+      <div class="card tilt r3d left"><span class="ic">📊</span><h3>Market Insights</h3><p>Follow important market developments and understand what may be influencing different stocks and sectors.</p></div>
+      <div class="card tilt r3d right"><span class="ic">🔎</span><h3>Research-Focused Analysis</h3><p>Learn how businesses and stocks can be evaluated using a structured, research-oriented approach.</p></div>
+      <div class="card tilt r3d left" style="--d:.1s"><span class="ic">☪️</span><h3>Shariah-Conscious Perspective</h3><p>Explore investing through principles that consider the Shariah status of businesses and financial activities.</p></div>
+      <div class="card tilt r3d right" style="--d:.1s"><span class="ic">📚</span><h3>Learn As You Go</h3><p>Understand the concepts behind stock-market investing instead of simply following random tips.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:50px" class="r3d"><a class="btn" href="https://t.me/+hK79AGqhLCdlNjhl" target="_blank" rel="noopener">JOIN TELEGRAM CHANNEL <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.4 18.7 19.6c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.3l-4.7-1.5c-1-.3-1-1 .2-1.5L20.400 3.200c.9-.3 1.600.2 1.500 1.200z"/></svg></a></div>
+  </div>
+</section>
+
+<section class="s-process">
+  <div class="wrap">
+    <h2 class="r3d">A better way to approach Halal investing</h2>
+    <p class="r3d">Successful investing isn't about chasing every market move. It's about developing a process.</p>
+    <div class="steps">
+      <div class="step tilt r3d" style="--d:0s"><em>1</em><h3>Learn</h3></div>
+      <div class="step tilt r3d" style="--d:.12s"><em>2</em><h3>Research</h3></div>
+      <div class="step tilt r3d" style="--d:.24s"><em>3</em><h3>Evaluate</h3></div>
+      <div class="step tilt r3d" style="--d:.36s"><em>4</em><h3>Decide</h3></div>
+    </div>
+    <div class="note r3d"><p>Our content is designed to help you become more informed about the market and develop a disciplined approach to investing.</p>
+      <span>No unnecessary hype. No unrealistic promises.</span>
+      <p>Just a focus on knowledge, research and responsible investing.</p></div>
+  </div>
+</section>
+
+<section class="s-why">
+  <div class="wrap">
+    <h2 class="r3d">Why join the community?</h2>
+    <div class="grid c2">
+      <div class="card sm tilt r3d left"><h3>Stay Updated</h3><p>Keep up with relevant market discussions and educational insights.</p></div>
+      <div class="card sm tilt r3d right"><h3>Learn New Concepts</h3><p>Build your understanding of stocks, businesses, valuation and market behaviour.</p></div>
+      <div class="card sm tilt r3d left" style="--d:.1s"><h3>Discover a Shariah-Conscious Approach</h3><p>Learn how investors can incorporate Islamic principles into their stock-market research.</p></div>
+      <div class="card sm tilt r3d right" style="--d:.1s"><h3>Become More Informed</h3><p>Use educational content to develop your own understanding before making investment decisions.</p></div>
+    </div>
+    <div style="text-align:center;margin-top:50px" class="r3d"><a class="btn" href="https://t.me/+hK79AGqhLCdlNjhl" target="_blank" rel="noopener">JOIN TELEGRAM CHANNEL <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.4 18.7 19.6c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.3l-4.7-1.5c-1-.3-1-1 .2-1.5L20.400 3.200c.9-.3 1.600.2 1.500 1.200z"/></svg></a></div>
+  </div>
+</section>
+
+<section class="s-final">
+  <div class="wrap final-in">
+    <h2 class="r3d">Start your Halal investing journey</h2>
+    <p class="r3d" style="--d:.1s">If you're interested in learning more about the stock market from a Halal / Shariah-conscious perspective, join the Telegram community.</p>
+    <span class="tag r3d" style="--d:.2s">Learn. Research. Understand. Invest Responsibly.</span>
+    <a class="btn pulse r3d" style="--d:.3s" href="https://t.me/+hK79AGqhLCdlNjhl" target="_blank" rel="noopener">JOIN TELEGRAM CHANNEL <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.9 4.4 18.7 19.6c-.2 1-.9 1.3-1.7.8l-4.8-3.6-2.3 2.2c-.3.3-.5.5-1 .5l.3-4.9 8.9-8c.4-.3-.1-.5-.6-.2L6.5 13.3l-4.7-1.5c-1-.3-1-1 .2-1.5L20.400 3.200c.9-.3 1.600.2 1.500 1.200z"/></svg></a>
+  </div>
+</section>
+
+<section class="s-disc">
+  <div class="wrap r3d">
+    <h3>Important disclaimer</h3>
+    <p>The information provided on this page and through our community is for educational and informational purposes only. Nothing presented should be considered personalized financial, investment, legal, or Shariah advice. Investing in securities involves risk, and past performance does not guarantee future results. Please conduct your own research and consider consulting a qualified financial professional and/or qualified Shariah scholar where appropriate before making investment decisions.</p>
+  </div>
+</section>
+<footer>© <span id="yr"></span> Halal Investing. For education only.</footer>
+
+<script>
+(function(){
+  document.getElementById('yr').textContent=new Date().getFullYear();
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* 3D reveal on scroll */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    if(e.isIntersecting){e.target.classList.add('in');}
+  })},{threshold:.15});
+  document.querySelectorAll('.r3d').forEach(function(el){io.observe(el)});
+
+
+  /* tilt + glow on cards (touch & mouse) */
+  function bindTilt(el){
+    function move(x,y){
+      var r=el.getBoundingClientRect(),px=(x-r.left)/r.width,py=(y-r.top)/r.height;
+      el.style.setProperty('--ry',((px-.5)*16)+'deg');
+      el.style.setProperty('--rx',((.5-py)*16)+'deg');
+      el.style.setProperty('--gx',(px*100)+'%');el.style.setProperty('--gy',(py*100)+'%');
+      el.classList.add('active');
+    }
+    function reset(){el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg');el.classList.remove('active')}
+    el.addEventListener('pointermove',function(e){if(!reduce)move(e.clientX,e.clientY)});
+    el.addEventListener('pointerleave',reset);
+    el.addEventListener('pointercancel',reset);
+    el.addEventListener('pointerup',function(e){if(e.pointerType==='touch')setTimeout(reset,350)});
+  }
+  document.querySelectorAll('.tilt').forEach(bindTilt);
+
+  /* buttons: free reveal class after entrance so 3D hover works */
+  document.querySelectorAll('.btn.r3d').forEach(function(b){
+    new MutationObserver(function(m,o){ if(b.classList.contains('in')){o.disconnect();
+      setTimeout(function(){b.classList.remove('r3d','in')},1700)} }).observe(b,{attributes:true,attributeFilter:['class']});
+  });
+  /* button 3D tilt */
+  document.querySelectorAll('.btn').forEach(function(b){
+    b.addEventListener('pointermove',function(e){
+      if(reduce)return;var r=b.getBoundingClientRect();
+      b.style.setProperty('--bry',(((e.clientX-r.left)/r.width-.5)*22)+'deg');
+      b.style.setProperty('--brx',((.5-(e.clientY-r.top)/r.height)*26)+'deg');
+    });
+    function rst(){b.style.setProperty('--bry','0deg');b.style.setProperty('--brx','0deg')}
+    b.addEventListener('pointerleave',rst);b.addEventListener('pointercancel',rst);
+    b.addEventListener('pointerup',function(e){if(e.pointerType==='touch')setTimeout(rst,300)});
+  });
+  /* button light follows finger / cursor */
+  document.querySelectorAll('.btn').forEach(function(b){
+    b.addEventListener('pointermove',function(e){
+      var r=b.getBoundingClientRect();
+      b.style.setProperty('--mx',(e.clientX-r.left)+'px');b.style.setProperty('--my',(e.clientY-r.top)+'px');
+    });
+  });
+
+
+/* floating gold particles + 3D crescent moons (scroll-reactive) */
+  var c=document.getElementById('fx'),x=c.getContext('2d'),W,H,P=[],M=[],dpr=Math.min(devicePixelRatio||1,2);
+  function size(){W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;x.setTransform(dpr,0,0,dpr,0,0)}
+  size();addEventListener('resize',size);
+  var n=innerWidth<760?30:60;
+  for(var i=0;i<n;i++)P.push({x:Math.random()*W,y:Math.random()*H,z:Math.random()*.9+.1,v:Math.random()*.35+.1});
+
+  /* crescent sprite */
+  var S=document.createElement('canvas');S.width=S.height=128;var sx=S.getContext('2d');
+  var g=sx.createLinearGradient(10,10,118,118);g.addColorStop(0,'#fff6d8');g.addColorStop(.5,'#d9b86a');g.addColorStop(1,'#8a6a25');
+  sx.fillStyle=g;sx.beginPath();sx.arc(64,64,54,0,6.283);sx.fill();
+  sx.globalCompositeOperation='destination-out';sx.beginPath();sx.arc(84,56,46,0,6.283);sx.fill();
+  /* 8-point islamic star sprite */
+  var T=document.createElement('canvas');T.width=T.height=128;var tx=T.getContext('2d');
+  var g2=tx.createLinearGradient(10,10,118,118);g2.addColorStop(0,'#fff6d8');g2.addColorStop(.5,'#d9b86a');g2.addColorStop(1,'#8a6a25');
+  tx.fillStyle=g2;
+  for(var q=0;q<2;q++){tx.save();tx.translate(64,64);tx.rotate(q*Math.PI/4);tx.fillRect(-40,-40,80,80);tx.restore()}
+  tx.globalCompositeOperation='destination-out';tx.beginPath();tx.arc(64,64,13,0,6.283);tx.fill();
+  var mc=innerWidth<760?30:50;
+  for(var j=0;j<mc;j++){var z=Math.random()*.75+.25;
+    M.push({k:j%5===0?0:1,x:Math.random()*W,y:Math.random()*H*1.4,z:z,s:(j%5===0?14+Math.random()*26:9+Math.random()*16)*z,r:Math.random()*6.283,
+      rs:(Math.random()-.5)*.004,f:Math.random()*6.283,fs:.006+Math.random()*.01,dr:Math.random()*6.283,da:6+Math.random()*14})}
+  var lastY=window.scrollY,t=0;
+  function draw(){
+    t++;var cy=window.scrollY,dy=cy-lastY;lastY=cy;
+    x.clearRect(0,0,W,H);x.shadowBlur=0;
+    P.forEach(function(p){
+      p.y-=p.v*p.z;if(p.y<-10){p.y=H+10;p.x=Math.random()*W}
+      x.beginPath();x.arc(p.x,p.y,p.z*2,0,6.283);
+      x.fillStyle='rgba(243,220,162,'+(p.z*.45)+')';x.fill();
+    });
+    var span=H*1.4;
+    M.forEach(function(m){
+      m.r+=m.rs+dy*.012*m.z;          /* spin faster while scrolling */
+      m.f+=m.fs+Math.abs(dy)*.01*m.z; /* 3D flip phase */
+      var yy=(m.y-cy*.35*m.z+Math.sin(t*.01+m.dr)*m.da)%span;if(yy<0)yy+=span;yy-=H*.2;
+      var xx=m.x+Math.cos(t*.008+m.dr)*m.da*1.2;
+      var flip=Math.cos(m.f),w=m.s*(.25+.75*Math.abs(flip));
+      x.save();x.translate(xx,yy);x.rotate(m.r);
+      x.globalAlpha=.18+m.z*.5*(.55+.45*Math.abs(flip));
+      x.shadowColor='rgba(217,184,106,.9)';x.shadowBlur=10*m.z;
+      x.scale(flip<0?-1:1,1);
+      x.drawImage(m.k?T:S,-w/2,-m.s/2,w,m.s);
+      x.restore();
+    });
+    x.globalAlpha=1;
+    if(!reduce)requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+</body>
+</html>
